@@ -1,6 +1,7 @@
 # Written by Kamran Bigdely
 # Example for Compose Methods: Extract Method.
-import math 
+import math
+
 
 def print_stat():
     grade_list = []
@@ -10,11 +11,11 @@ def print_stat():
         grade_list.append(int(input('Enter a number: ')))
 
     # Calculate the mean and standard deviation of the grades
-    sum = 0 # Do you think 'sum' is a good var name? Run pylint to figure out!
+    sum = 0  # Do you think 'sum' is a good var name? Run pylint to figure out!
     for grade in grade_list:
         sum = sum + grade
     mean = sum / len(grade_list)
-    sd = 0 # standard deviation
+    sd = 0  # standard deviation
     sum_of_sqrs = 0
     for grade in grade_list:
         sum_of_sqrs += (grade - mean) ** 2
@@ -24,5 +25,6 @@ def print_stat():
     print("The grades's mean is:", mean)
     print('The population standard deviation of grades is: ', round(sd, 3))
     print('****** END ******')
+
 
 print_stat()

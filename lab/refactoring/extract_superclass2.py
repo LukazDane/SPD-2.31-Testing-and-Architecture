@@ -14,13 +14,14 @@ class Shape:
         self.visible = is_visible
 
 
-class Circle:
+class Circle(Shape):
 
     def __init__(self, x, y, r, visible=True):
-        self.center_x = x
-        self.center_y = y
+        super().__init__(x, y, visible)
+        # self.center_x = x
+        # self.center_y = y
         self.r = r
-        self.visible = visible
+        # self.visible = visible
 
     def display(self):
         print('drew the circle.')
@@ -32,15 +33,16 @@ class Circle:
         return self.center_x, self.center_y
 
 
-class Rectangle:
+class Rectangle(Shape):
 
     def __init__(self, x, y, width, height, visible=True):
-        # left-bottom corner.
-        self.x = x
-        self.y = y
+        super().__init__(x, y, visible)
+        # # left-bottom corner.
+        # self.x = x
+        # self.y = y
         self.width = width
         self.height = height
-        self.visible = visible
+        # self.visible = visible
 
     def display(self):
         if self.visible:

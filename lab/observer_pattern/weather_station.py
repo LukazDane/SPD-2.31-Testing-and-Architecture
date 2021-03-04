@@ -81,17 +81,39 @@ class CurrentConditionsDisplay(Observer):
         self.display()
 
     def display(self):
-        print("Current conditions:", self.temerature,
+        print("\nCurrent conditions:", self.temerature,
               "F degrees and", self.humidity, "[%] humidity",
               "and pressure", self.pressure)
 
 # TODO: implement StatisticsDisplay class and ForecastDisplay class.
 
 
+class StatisticsDisplay(CurrentConditionsDisplay):
+    def update(self, temperature, humidity, pressure):
+        self.temerature = temperature
+        self.humidity = humidity
+        self.pressure = pressure
+        print("\nStats:", self.temerature,
+              "F degrees and", self.humidity, "[%] humidity",
+              "and pressure", self.pressure)
+
+
+class ForcastDisplay(CurrentConditionsDisplay):
+    def update(self, temperature, humidity, pressure):
+        self.temerature = temperature
+        self.humidity = humidity
+        self.pressure = pressure
+        print("\nForcast:", self.temerature,
+              "F degrees and", self.humidity, "[%] humidity",
+              "and pressure", self.pressure)
+
+
 class WeatherStation:
     def main(self):
         weather_data = WeatherData()
         current_display = CurrentConditionsDisplay(weather_data)
+        # forcast_display = ForcastDisplay(weather_data)
+        # statistics_display = StatisticsDisplay(weather_data)
 
         # TODO: Create two objects from StatisticsDisplay class and
         # ForecastDisplay class. Also register them to the concerete instance

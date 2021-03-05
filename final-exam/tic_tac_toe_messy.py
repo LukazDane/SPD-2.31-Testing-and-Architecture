@@ -124,7 +124,7 @@ def chooseRandomMoveFromList(board, movesList):
 
 # TODO: W0621: Redefining name 'computerLetter' from outer scope. Hint: Fix it according to https://stackoverflow.com/a/25000042/81306
 def getComputerMove(board, computerLetter):
-    # Given a board and the computer's letter, determine where to move and return that move.
+    """ Given a board and the computer's letter, determine where to move and return that move. """
     if computerLetter == 'X':
         playerLetter = 'O'
     else:
@@ -162,7 +162,7 @@ def getComputerMove(board, computerLetter):
 
 
 def isBoardFull(board):
-    # Return True if every space on the board has been taken. Otherwise return False.
+    """ Return True if every space on the board has been taken. Otherwise return False. """
     for i in range(1, 10):
         if isSpaceFree(board, i):
             return False
@@ -170,6 +170,7 @@ def isBoardFull(board):
 
 
 def playGame():
+    """start the game"""
     print('Welcome to Tic Tac Toe!')
 
     # TODO: The following mega code block is a huge hairy monster. Break it down
@@ -185,6 +186,7 @@ def playGame():
         print('The ' + turn + ' will go first.')
         # TODO: Study how this variable is used. Does it ring a bell? (which refactoring method?)
         # gameIsPlaying = True
+        """ gameIsPlaying is a control flag, and we can remove that"""
         #       See whether you can get rid of this 'flag' variable. If so, remove it.
 
         # TODO: Usually (not always), loops (or their content) are good candidates to be extracted into their own function.
@@ -201,12 +203,12 @@ def playGame():
                     print('Hooray! You have won the game!')
                     # gameIsPlaying = False
                     break
-                else:  # TODO: is this 'else' necessary?
+                else:  # TODO: is this 'else' necessary? yes, if removed, results in a error loop
                     if isBoardFull(theBoard):
                         drawBoard(theBoard)
                         print('The game is a tie!')
                         break
-                    # else:  # TODO: Is this 'else' necessary?
+                    # else:  # TODO: Is this 'else' necessary? no
                     turn = 'computer'
 
             else:
@@ -219,12 +221,12 @@ def playGame():
                     print('The computer has beaten you! You lose.')
                     # gameIsPlaying = False
                     break
-                else:     # TODO: is this 'else' necessary?
+                else:     # TODO: is this 'else' necessary? yes, if removed, results in a error loop
                     if isBoardFull(theBoard):
                         drawBoard(theBoard)
                         print('The game is a tie!')
                         break
-                    # else:  # TODO: Is this 'else' necessary?
+                    # else:  # TODO: Is this 'else' necessary? no
                     turn = 'player'
 
         if not playAgain():
